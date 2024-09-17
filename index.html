@@ -1,31 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watch Timer</title>
+  <title>Таймер на часах</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-      background-image: url('./!qq.png');
-      background-size: cover;
+      background-color: #000; /* На случай, если изображение не загрузится */
+    }
+    #background {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-image: url('./!qq.png'); /* Укажите путь к изображению */
+      background-size: cover; /* Фон будет на весь экран */
+      background-position: center;
+      background-repeat: no-repeat;
     }
     #timer {
-      font-size: 32px;
+      font-size: 20px; /* Настройте размер под циферблат */
       color: white;
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 48.8%; /* Настройте позиционирование таймера */
+      left: 49.6%; /* Настройте позиционирование таймера */
       transform: translate(-50%, -50%);
+      font-family: 'Courier New', Courier, monospace;
     }
   </style>
 </head>
 <body>
-  <div id="timer">00:00:00</div>
+  <div id="background">
+    <div id="timer">00:00:00</div>
+  </div>
 
   <script>
     let startTime = Date.now();
@@ -40,7 +52,7 @@
       minutes = String(minutes).padStart(2, '0');
       seconds = String(seconds).padStart(2, '0');
 
-      document.getElementById('timer').innerText = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('timer').innerText = ${hours}:${minutes}:${seconds};
     }
 
     setInterval(updateTimer, 1000);
