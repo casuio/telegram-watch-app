@@ -7,9 +7,9 @@
   <style>
     @font-face {
       font-family: 'Digital7';
-      src: url('./digital_7.ttf') format('truetype'); /* Исправленный путь */
+      src: url('./digital_7.ttf') format('truetype'); /* Подключаем шрифт */
     }
-    
+
     body {
       margin: 0;
       padding: 0;
@@ -18,13 +18,14 @@
       align-items: center;
       height: 100vh;
       background-color: #000;
+      overflow: hidden; /* Убираем скроллинг */
     }
 
     #background {
       position: relative;
-      width: 100%;
-      height: 100%;
-      background-image: url('./!qq.png'); /* Укажите путь к вашему изображению */
+      width: 100vw;
+      height: 100vh;
+      background-image: url('./!qq.png'); /* Фоновые часы */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -32,25 +33,26 @@
 
     #timer {
       font-family: 'Digital7', sans-serif;
-      font-size: 10vw; /* Размер шрифта адаптируется по ширине экрана */
+      font-size: 4vw; /* Размер шрифта адаптируется по ширине экрана */
       color: #4caf50; /* Зелёный цвет таймера */
       position: absolute;
-      top: 50%;
+      top: 47.5%; /* Настройка положения таймера внутри циферблата */
       left: 50%;
       transform: translate(-50%, -50%);
     }
 
-    /* Медиазапрос для мобильных устройств */
+    /* Медиазапросы для разных экранов */
     @media (max-width: 600px) {
       #timer {
-        font-size: 15vw; /* Увеличиваем размер шрифта на меньших экранах */
+        font-size: 8vw; /* Увеличиваем шрифт для мобильных устройств */
+        top: 48%; /* Точная настройка положения таймера */
       }
     }
 
-    /* Медиазапрос для экранов большего размера, например для ноутбуков */
     @media (min-width: 1200px) {
       #timer {
-        font-size: 8vw; /* Немного уменьшаем шрифт для больших экранов */
+        font-size: 3vw; /* Немного уменьшаем шрифт для больших экранов */
+        top: 47.5%;
       }
     }
   </style>
