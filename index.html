@@ -27,9 +27,9 @@
       font-size: 20px; /* Настройте размер под циферблат */
       color: white;
       position: absolute;
-      top: 48.8%; /* Настройте позиционирование таймера */
-      left: 49.6%; /* Настройте позиционирование таймера */
-      transform: translate(-50%, -50%);
+      top: 50%; /* Настройте это значение, чтобы переместить таймер вверх или вниз */
+      left: 50%; /* Настройте это значение, чтобы переместить таймер влево или вправо */
+      transform: translate(-50%, -50%); /* Центрирование таймера */
       font-family: 'Courier New', Courier, monospace;
     }
   </style>
@@ -48,15 +48,16 @@
       let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
 
-      hours = String(hours).padStart(2, '0');
-      minutes = String(minutes).padStart(2, '0');
-      seconds = String(seconds).padStart(2, '0');
+      hours = hours.toString().padStart(2, '0');
+      minutes = minutes.toString().padStart(2, '0');
+      seconds = seconds.toString().padStart(2, '0');
 
-      document.getElementById('timer').innerText = ${hours}:${minutes}:${seconds};
+      document.getElementById('timer').innerText = hours + ':' + minutes + ':' + seconds;
     }
 
     setInterval(updateTimer, 1000);
   </script>
 </body>
 </html>
+
 
