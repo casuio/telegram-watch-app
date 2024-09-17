@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Таймер на часах</title>
+  <link href="https://fonts.googleapis.com/css?family=Digital+7&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -12,25 +13,25 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #000; /* На случай, если изображение не загрузится */
+      background-color: #000;
     }
     #background {
       position: relative;
       width: 100%;
       height: 100%;
-      background-image: url('./!qq.png'); /* Укажите путь к изображению */
-      background-size: cover; /* Фон будет на весь экран */
+      background-image: url('./!qq.png'); /* Укажите путь к вашему изображению */
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
     #timer {
-      font-size: 20px; /* Настройте размер под циферблат */
-      color: white;
+      font-family: 'Digital 7', monospace; /* Стиль шрифта для сегментного индикатора */
+      font-size: 80px; /* Размер шрифта для большой видимости */
+      color: #4caf50; /* Зелёный цвет, имитирующий цвет сегментных индикаторов */
       position: absolute;
-      top: 34%; /* Настройте это значение, чтобы переместить таймер вверх или вниз */
-      left: 48%; /* Настройте это значение, чтобы переместить таймер влево или вправо */
+      top: 50%; /* Позиционирование таймера по вертикали */
+      left: 50%; /* Позиционирование таймера по горизонтали */
       transform: translate(-50%, -50%); /* Центрирование таймера */
-      font-family: 'Courier New', Courier, monospace;
     }
   </style>
 </head>
@@ -59,5 +60,6 @@
   </script>
 </body>
 </html>
+
 
 
