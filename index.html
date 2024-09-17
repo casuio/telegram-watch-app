@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Таймер на часах</title>
-  <link href="https://fonts.googleapis.com/css2?family=Digital+7&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Digital+7&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -13,19 +13,19 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #000; /* Фоновый цвет на случай, если изображение не загрузится */
+      background-color: #000;
     }
     #background {
       position: relative;
       width: 100%;
       height: 100%;
-      background-image: url('/!qq.png'); /* Обновлённый путь к фоновому изображению */
+      background-image: url('./!qq.png'); /* Укажите путь к вашему изображению */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
     #timer {
-      font-family: 'Digital 7', monospace; /* Использование подключенного шрифта */
+      font-family: 'Digital 7', monospace; /* Стиль шрифта для сегментного индикатора */
       font-size: 80px; /* Размер шрифта для большой видимости */
       color: #4caf50; /* Зелёный цвет, имитирующий цвет сегментных индикаторов */
       position: absolute;
