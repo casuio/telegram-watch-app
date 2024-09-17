@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Таймер на часах</title>
-  <link href="https://fonts.googleapis.com/css?family=Digital+7&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Digital7';
+      src: url('./telegram-watch-app/digital_7.ttf') format('truetype'); /* Укажите правильный путь к файлу */
+    }
+    
     body {
       margin: 0;
       padding: 0;
@@ -15,6 +19,7 @@
       height: 100vh;
       background-color: #000;
     }
+    
     #background {
       position: relative;
       width: 100%;
@@ -24,8 +29,9 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+    
     #timer {
-      font-family: 'Digital 7', monospace; /* Стиль шрифта для сегментного индикатора */
+      font-family: 'Digital7', monospace; /* Используем шрифт Digital7 */
       font-size: 80px; /* Размер шрифта для большой видимости */
       color: #4caf50; /* Зелёный цвет, имитирующий цвет сегментных индикаторов */
       position: absolute;
