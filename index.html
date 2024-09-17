@@ -19,7 +19,7 @@
       height: 100vh;
       background-color: #000;
     }
-    
+
     #background {
       position: relative;
       width: 100%;
@@ -29,15 +29,29 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    
+
     #timer {
-      font-family: 'Digital7', sans-serif; /* Используем шрифт Digital7 */
-      font-size: 80px; /* Размер шрифта для большой видимости */
-      color: #4caf50; /* Зелёный цвет, имитирующий цвет сегментных индикаторов */
+      font-family: 'Digital7', sans-serif;
+      font-size: 10vw; /* Размер шрифта адаптируется по ширине экрана */
+      color: #4caf50; /* Зелёный цвет таймера */
       position: absolute;
-      top: 50%; /* Позиционирование таймера по вертикали */
-      left: 50%; /* Позиционирование таймера по горизонтали */
-      transform: translate(-50%, -50%); /* Центрирование таймера */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Медиазапрос для мобильных устройств */
+    @media (max-width: 600px) {
+      #timer {
+        font-size: 15vw; /* Увеличиваем размер шрифта на меньших экранах */
+      }
+    }
+
+    /* Медиазапрос для экранов большего размера, например для ноутбуков */
+    @media (min-width: 1200px) {
+      #timer {
+        font-size: 8vw; /* Немного уменьшаем шрифт для больших экранов */
+      }
     }
   </style>
 </head>
