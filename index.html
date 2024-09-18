@@ -45,9 +45,11 @@
     #counter {
       font-family: 'Arial', sans-serif;
       font-size: 2vw;
-      color: #ffffff;
-      margin-top: 50px; /* Отступ от таймера */
-      text-align: center;
+      color: #ffffff; /* Цвет по умолчанию */
+      position: absolute; /* Возможность свободного позиционирования */
+      top: 70%; /* Можно изменять положение */
+      left: 50%; /* Можно изменять положение */
+      transform: translate(-50%, -50%);
     }
 
     /* Медиазапросы для разных экранов */
@@ -84,7 +86,7 @@
     let startTime = Date.now();
     let totalSum = 0;
     const incrementValue = 83.333;
-    
+
     function updateTimer() {
       let elapsedTime = Date.now() - startTime;
       let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
