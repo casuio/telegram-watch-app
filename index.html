@@ -16,6 +16,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 100vh;
       background-color: #000;
       overflow: hidden; /* Убираем скроллинг */
@@ -36,23 +37,39 @@
       font-size: 4vw; /* Размер шрифта адаптируется по ширине экрана */
       color: #4caf50; /* Зелёный цвет таймера */
       position: absolute;
-      top: 5%; /* Настройка положения таймера внутри циферблата */
-      left: 47%;
+      top: 47.5%; /* Настройка положения таймера внутри циферблата */
+      left: 50%;
       transform: translate(-50%, -50%);
+    }
+
+    #counter {
+      font-family: 'Arial', sans-serif;
+      font-size: 2vw;
+      color: #ffffff;
+      margin-top: 50px; /* Отступ от таймера */
+      text-align: center;
     }
 
     /* Медиазапросы для разных экранов */
     @media (max-width: 600px) {
       #timer {
         font-size: 8vw; /* Увеличиваем шрифт для мобильных устройств */
-        top: 40%; /* Точная настройка положения таймера */
+        top: 48%; /* Точная настройка положения таймера */
+      }
+
+      #counter {
+        font-size: 6vw;
       }
     }
 
     @media (min-width: 1200px) {
       #timer {
         font-size: 3vw; /* Немного уменьшаем шрифт для больших экранов */
-        top: 35%;
+        top: 47.5%;
+      }
+
+      #counter {
+        font-size: 3vw;
       }
     }
   </style>
@@ -60,11 +77,14 @@
 <body>
   <div id="background">
     <div id="timer">00:00:00</div>
+    <div id="counter">0.000</div> <!-- Элемент для отображения суммы -->
   </div>
 
   <script>
     let startTime = Date.now();
-
+    let totalSum = 0;
+    const incrementValue = 83.333;
+    
     function updateTimer() {
       let elapsedTime = Date.now() - startTime;
       let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
@@ -78,7 +98,20 @@
       document.getElementById('timer').innerText = hours + ':' + minutes + ':' + seconds;
     }
 
+    function updateCounter() {
+      let currentTime = Date.now();
+      let minutesPassed = Math.floor((currentTime - startTime) / (1000 * 60)); // Определяем количество полных минут
+
+      // Обновляем значение каждую минуту
+      totalSum = (minutesPassed * incrementValue).toFixed(3);
+      document.getElementById('counter').innerText = totalSum;
+    }
+
+    // Обновляем таймер каждую секунду
     setInterval(updateTimer, 1000);
+
+    // Обновляем сумму каждую минуту
+    setInterval(updateCounter, 1000); // Можно оставить обновление каждую секунду для плавности
   </script>
 </body>
 </html>
