@@ -1,119 +1,26 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Таймер на часах</title>
-  <style>
-    @font-face {
-      font-family: 'Digital7';
-      src: url('./digital_7.ttf') format('truetype'); /* Подключаем шрифт */
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100vh;
-      background-color: #000;
-      overflow: hidden; /* Убираем скроллинг */
-    }
-
-    #background {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      background-image: url('./!qq.png'); /* Фоновые часы */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    #timer {
-      font-family: 'Digital7', sans-serif;
-      font-size: 4vw; /* Размер шрифта адаптируется по ширине экрана */
-      color: #4caf50; /* Зелёный цвет таймера */
-      position: absolute;
-      top: 5%; /* Настройка положения таймера внутри циферблата */
-      left: 47%;
-      transform: translate(-50%, -50%);
-    }
-
-    #counter {
-      font-family: 'Digital7', sans-serif; /* Тот же шрифт, что и у таймера */
-      font-size: 2vw;
-      color: #d35e25; /* Новый цвет шрифта */
-      position: absolute; /* Возможность свободного позиционирования */
-      top: 44%; /* Можно изменять положение */
-      left: 46%; /* Можно изменять положение */
-      transform: translate(-50%, -50%);
-    }
-
-    /* Медиазапросы для разных экранов */
-    @media (max-width: 600px) {
-      #timer {
-        font-size: 8vw; /* Увеличиваем шрифт для мобильных устройств */
-        top: 40%; /* Точная настройка положения таймера */
-      }
-
-      #counter {
-        font-size: 6vw;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      #timer {
-        font-size: 3vw; /* Немного уменьшаем шрифт для больших экранов */
-        top: 35%;
-      }
-
-      #counter {
-        font-size: 3vw;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Screen</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-  <div id="background">
-    <div id="timer">00:00:00</div>
-    <div id="counter">0.000</div> <!-- Элемент для отображения суммы -->
-  </div>
-
-  <script>
-    let startTime = Date.now();
-    let totalSum = 0;
-    const incrementValue = 83.333;
-
-    function updateTimer() {
-      let elapsedTime = Date.now() - startTime;
-      let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
-      let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
-
-      hours = hours.toString().padStart(2, '0');
-      minutes = minutes.toString().padStart(2, '0');
-      seconds = seconds.toString().padStart(2, '0');
-
-      document.getElementById('timer').innerText = hours + ':' + minutes + ':' + seconds;
-    }
-
-    function updateCounter() {
-      let currentTime = Date.now();
-      let minutesPassed = Math.floor((currentTime - startTime) / (1000 * 60)); // Определяем количество полных минут
-
-      // Обновляем значение каждую минуту
-      totalSum = (minutesPassed * incrementValue).toFixed(3);
-      document.getElementById('counter').innerText = totalSum;
-    }
-
-    // Обновляем таймер каждую секунду
-    setInterval(updateTimer, 1000);
-
-    // Обновляем сумму каждую минуту
-    setInterval(updateCounter, 1000); // Можно оставить обновление каждую секунду для плавности
-  </script>
+    <script>
+        // Telegram Web App API: Инициализация WebApp
+        const tg = window.Telegram.WebApp;
+        tg.expand();  // Расширяем приложение на весь экран
+    </script>
 </body>
 </html>
